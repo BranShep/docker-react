@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bshepdev/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run bshepdev/docker-react npm run test -- --coverage
